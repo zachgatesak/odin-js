@@ -52,29 +52,29 @@
         test(arr2); // length:2
 8. What is the difference between =, ==, and ===?
 
-Are these "truthy" or "falsy" in JS: "0",NaN,null,"words","",[], undefined,{}, 1, 0?
-How do you get the length of a string?
-How do you find a value within a string?
-How does a "switch" statement work?
-How can you use objects to accomplish the same task?
-How do you set up a for loop? A for...in loop?
-How do you set up a while loop?
-How do you break out of a loop or skip to the next iteration?
-What are "reserved words"?
-How do you concatenate two arrays together?
-How do you sort arrays? Reverse them?
-How do you use the #forEach method to print each item in an array?
-How are Javascript objects similar to hashes in Ruby?
-How are functions declared (two ways)?
-What are "anonymous functions"? How are they similar to blocks in Ruby?
-How can you pass a function arguments?
-What does a function return?
-What are "immediately invoked function expressions (IIFE)"?
-If a function has been saved to a variable some_var, what's the difference between how you would pass the function itself around instead of running it immediately when called? (hint: parentheses)
-How do you test what the Type of an object is? (e.g. string, number, function, undefined...)
-What is this set to in Javascript?
-How is this similar to and different from Ruby's self?
-How to you make a variable in the global scope? The local scope?
-Why are closures useful?
-How would you use a closure to "close" a value within a function?
-How does #bind make your life simpler when thinking about closures and scopes?
+9/ Are these "truthy" or "falsy" in JS: "0",NaN,null,"words","",[], undefined,{}, 1, 0?
+10. How do you get the length of a string?
+11. How do you find a value within a string?
+12. How does a "switch" statement work?
+13. How can you use objects to accomplish the same task?
+14. How do you set up a for loop? A for...in loop?
+15. How do you set up a while loop?
+16. How do you break out of a loop or skip to the next iteration?
+17. What are "reserved words"?
+18. How do you concatenate two arrays together?
+19. How do you sort arrays? Reverse them?
+20. How do you use the #forEach method to print each item in an array?
+21. How are Javascript objects similar to hashes in Ruby?
+22. How are functions declared (two ways)?
+23. What are "anonymous functions"? How are they similar to blocks in Ruby?
+24. How can you pass a function arguments?
+25. What does a function return?
+26. What are "immediately invoked function expressions (IIFE)"?
+27. If a function has been saved to a variable some_var, what's the difference between how you would pass the function itself around instead of running it immediately when called? (hint: parentheses)
+28. How do you test what the Type of an object is? (e.g. string, number, function, undefined...)
+29. What is this set to in Javascript?
+30. How is this similar to and different from Ruby's self?
+31. How to you make a variable in the global scope? The local scope?
+32. Why are closures useful?
+33. How would you use a closure to "close" a value within a function?
+34. How does #bind make your life simpler when thinking about closures and scopes?
