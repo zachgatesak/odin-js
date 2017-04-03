@@ -1,0 +1,80 @@
+1. How do you include a Javascript file in your HTML file?
+  1.1 <script src="script.js"></script>
+2. How do you include Javascript directly in your HTML code?
+  2.1 within <html><body><script>//Code goes here</script>
+3. How can you write and run your Javascript code using programs like jsfiddle?
+  3.1 JS fiddle is a html/css/JS sandbox that auto-loads the results within an iframe. This allows you to see the results of your code as you are writing them.
+4. How do you create a new object using the "Constructor" method?
+  4.1 info: https://css-tricks.com/understanding-javascript-constructors/
+  4.2. A constructor is useful when you want to create multiple similar objects with the same properties and methods. It’s a convention to capitalize the name of constructors to distinguish them from regular functions.
+  4.3. TLDR: allows for class-like asignment, and invoked with the 'new' keyword
+  4.4. example:
+                function Book() {
+              // unfinished code
+              }
+              var myBook = new Book();
+  4.5. Usually indicated by a function starting with a capital letter.
+  4.6. The root constructor (class) can be found by using the 'instanceof' keyword:
+      myBook instanceof Book    // true
+      myBook instanceof String  // false
+
+5. How do you create a new object using the "Literal" method?
+  5.1 Object(), Array(), String(), Number(), Boolean(), Date(), Function(), Error() and RegExp()
+  5.2 Object literals are not only easier to read but also faster to run because they can be optimize at parse time.
+
+6. What does JS return if you try to access an object's attribute that doesn't exist?
+  6.1 undefined.
+  6.2. example:
+    6.2.1 var zach = {};
+    6.2.2 console.log(zach.name); //undefined
+
+7. How do you add items to or remove items from an array?
+  7.1 pop() removes the last element from an array
+    7.1.1 example:
+        var arr = ['a','b','c','d','e','f'];
+        var el = arr.pop();
+        test(arr); // length:5, 0:a, 1:b, 2:c, 3:d, 4:e
+        console.log(el); // f
+  7.2 shift() removes the first element from an array
+        var arr = ['a','b','c','d','e','f'];
+        var el = arr.shift();
+        test(arr); // length:5, 0:b, 1:c, 2:d, 3:e, 4:f
+        console.log(el); // a
+  7.3 splice() can remove existing elements
+        var arr1 = ['a','b','c','d','e','f'];
+        var arr2 = arr1.splice(0,2); // remove 2 elements starting at index 0
+        test(arr1); // length:4, 0:c, 1:d, 2:e, 3:f
+        test(arr2); // length:2, 0:a, 1:b
+
+        var arr1 = ['a','b','c','d','e','f',,,'i'];
+        var arr2 = arr1.splice(6,2); // remove 2 elements starting at index 6
+        test(arr1); // length:7, 0:a, 1:b, 2:c, 3:d, 4:e, 5:f, 6:i
+        test(arr2); // length:2
+8. What is the difference between =, ==, and ===?
+
+Are these "truthy" or "falsy" in JS: "0",NaN,null,"words","",[], undefined,{}, 1, 0?
+How do you get the length of a string?
+How do you find a value within a string?
+How does a "switch" statement work?
+How can you use objects to accomplish the same task?
+How do you set up a for loop? A for...in loop?
+How do you set up a while loop?
+How do you break out of a loop or skip to the next iteration?
+What are "reserved words"?
+How do you concatenate two arrays together?
+How do you sort arrays? Reverse them?
+How do you use the #forEach method to print each item in an array?
+How are Javascript objects similar to hashes in Ruby?
+How are functions declared (two ways)?
+What are "anonymous functions"? How are they similar to blocks in Ruby?
+How can you pass a function arguments?
+What does a function return?
+What are "immediately invoked function expressions (IIFE)"?
+If a function has been saved to a variable some_var, what's the difference between how you would pass the function itself around instead of running it immediately when called? (hint: parentheses)
+How do you test what the Type of an object is? (e.g. string, number, function, undefined...)
+What is this set to in Javascript?
+How is this similar to and different from Ruby's self?
+How to you make a variable in the global scope? The local scope?
+Why are closures useful?
+How would you use a closure to "close" a value within a function?
+How does #bind make your life simpler when thinking about closures and scopes?
