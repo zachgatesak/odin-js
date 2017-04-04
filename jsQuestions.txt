@@ -112,21 +112,90 @@
 
 22. How are functions declared (two ways)?
   22.1 function declaration
+    22.1.1 Example
+      function name(param1,param2){
+      statements
+      }
+    22.1.2 Straight forward.
+    22.1.3 A function declaration is no longer a declaration when:
+      22.1.3.1 Becomes part of an expression
+      22.1.3.2 is no longer a "source element" of a function or the script itself.
+        (e.g. a non-nested statement in the script or a function body)
+
   22.2 function expression
-  22.3 sharthand method definition
+    22.2.1 Statements involving functions which do not start with function are function expressions
+    22.2.2 Example:
+      var a = function optionalName(){};
+  22.3 shorthand method definition
+    22.3.1 Example
+    22.3.2
+
   22.4 Arrow function
+    22.4.1 Example
+      (params) => {statements}
+      Note: a single param does not require parenthesis.
+
   22.5 Generator function
+    22.5.1 Example:
+      function* name(param){statements}
+
   22.6 function constructor.
+    22.6.1 Example
+      var multiply = new Function('x', 'y', 'return x * y');
+
+  22.7 IIFE (Immediately Invokable function expressions)
+    22.7.1 A function expression that will be ran as soon as it is declared.
+    22.7.2 (function(){statements});
+
+  22.8 Differences:
+    22.8.1 Function names cannot be changed, while function expressions (assigned to a variable can be changed)
+    22.8.2 Function names can only be used within the function's body.
+    22.8.3 Function names are viewable by using the function's toString method.
+    22.8.4 A variable is limited only by its scope, which will always include the scope in which the function is declared.
+    22.8.5 A function declaration also creates a variable with the same name as the function name, thus is accessble to the scope of that variable.
+    22.8.6 Function declarations can be called before the function is created
+    22.8.7
 
 23. What are "anonymous functions"? How are they similar to blocks in Ruby?
+  23.1 Anonymous functions are simply functions with no function name attached. Often they are just imediately invoked, and done, or tied to a variable to allow the function to be called when needed.
+
 24. How can you pass a function arguments?
+  24.1. Parameters are used to pass function arguments.
+
 25. What does a function return?
+  25.1 a value.
+  25.2. Default value is the value of the 'this' parameter
+  25.3 For all other function it will reutnr a value of undefined.
+
 26. What are "immediately invoked function expressions (IIFE)"?
+  26.1 a function that is ran immediately after being declared.
 27. If a function has been saved to a variable some_var, what's the difference between how you would pass the function itself around instead of running it immediately when called? (hint: parentheses)
+  27.1 To move a variable that is asigned a function you would simple move it with the variable name itself.
+  27.2 to call a variable assigned to a function you would append '()' with whatever params desired after the name of the variable.
+
 28. How do you test what the Type of an object is? (e.g. string, number, function, undefined...)
+  28.1 the typeOf method
+  28.2 Example. a.typeOf //string
+
 29. What is this set to in Javascript?
+  29.1 When a function is created, a keyword called this is created
+    which links to the objec ttin which the function operates.
+    A reference to the object of which that function is a property/method
+    of.
+
 30. How is this similar to and different from Ruby's self?
+  30.1 N/a
+
 31. How to you make a variable in the global scope? The local scope?
+  31.1 simply do a var declaration outside of all functions and base objects.
+
 32. Why are closures useful?
+  32.1 They allow for code to be reused without worry of overlapping or misdirection of variable information.
+  32.2 Allows for privitization of code
+
 33. How would you use a closure to "close" a value within a function?
+  33.1 simply declare the variable from within the function and do not return the variable itself.
+
 34. How does #bind make your life simpler when thinking about closures and scopes?
+  34.1 the bind() method allows for a new function that when called has its this keyword set to the provided value.
+  
