@@ -51,21 +51,73 @@
         test(arr1); // length:7, 0:a, 1:b, 2:c, 3:d, 4:e, 5:f, 6:i
         test(arr2); // length:2
 8. What is the difference between =, ==, and ===?
-
-9/ Are these "truthy" or "falsy" in JS: "0",NaN,null,"words","",[], undefined,{}, 1, 0?
+  8.1 "=" is used for assignments.
+  8.2 "==" eqaulity operator (less strict comparison)
+  8.3 "===" identity operator (Strict comparison)
+9. Are these "truthy" or "falsy" in JS:
+  9.1 "0" = truthy
+  9.2 NaN = falsy
+  9.3 null = falsy
+  9.4 "words" = truthy
+  9.5 "" = falsy
+  9.6 [] = truthy
+  9.7 undefined = falsy
+  9.8 {} = truthy
+  9.9 1 = truthy
+  9.10 0 = falsy
 10. How do you get the length of a string?
+  10.1 a.length => the number of elements in the array.
 11. How do you find a value within a string?
+  11.1 simply by calling the value itself or by calling components of it like an array:
+    let a = "abcdefg";
+    for (var i =0 ; i < a.length; i++){
+    console.log(a[i]);
+    }
 12. How does a "switch" statement work?
+  12.1 allows you to do one asessment and perform several different outcomes.
+  12.2 The use of case fall through also allows for multiple actions to be taken.
 13. How can you use objects to accomplish the same task?
+  13.1 you can simply create a function that contains an object with some predetermined actions.
+    this is done by returning a function based of what is passed into the function.
+
 14. How do you set up a for loop? A for...in loop?
+  14.1 for(let i; i <a.length; i++){//Code}
+  14.2 for(i in a) {//code} (This generally is not preferred as it will loop through every property of the object.)
+
 15. How do you set up a while loop?
+  15.1 while(condition){code}
+
 16. How do you break out of a loop or skip to the next iteration?
+  16.1 return;
+
 17. What are "reserved words"?
+  17.1 Reserved words are those reserved by the authors of JS
+    things like class, true, in, of. These reserved words cannot be used as variables.
+  17.2 abstract, class, const, continue, debugger, else, float,
+  for, function, goto, instanceof, null, package, private, protected.
+
 18. How do you concatenate two arrays together?
+  18.1 var newArr = arr1.concat(arr2);
+
 19. How do you sort arrays? Reverse them?
+  19.1 a.sort() the sort method will put things in alphabetical order for strings and by smallest to greatest in numerical
+  19.2 Numbers > Capitals > Lowercase
+  19.3 a.reverse();
+
 20. How do you use the #forEach method to print each item in an array?
+  20.1 a.forEach(//code);
+
 21. How are Javascript objects similar to hashes in Ruby?
+  21.1 ###
+
 22. How are functions declared (two ways)?
+  22.1 function declaration
+  22.2 function expression
+  22.3 sharthand method definition
+  22.4 Arrow function
+  22.5 Generator function
+  22.6 function constructor.
+
 23. What are "anonymous functions"? How are they similar to blocks in Ruby?
 24. How can you pass a function arguments?
 25. What does a function return?
