@@ -8,9 +8,23 @@ div {
   margin: 0 auto;
 }
 .digit {
-    padding: 25px;
-    font-size: 32px;
+    margin:2.5px 1px 1px 2.5px;
+    padding: 10px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     background: #dbdfe5;
+    transition: .5s;
+}
+.digit:hover {
+  background: #fff0f0;
+  transition: .5s;
+}
+
+#output {
+  background: white;
+}
+#zero {
+  margin: 2.5px 4px 1px 2.5px;
+  padding: 10px 40px 10px 40px;
 }

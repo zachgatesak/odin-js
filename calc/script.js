@@ -24,6 +24,7 @@ function reverse(arr){
   }
   return output.join("");
 }
+// Calc Functions
 function add(n1,n2){
   let output = n1 + n2;
   return output;
@@ -39,4 +40,17 @@ function multiply(n1,n2){
 function divide(n1,n2){
   let output = n1 / n2;
   return output;
+}
+function click(){console.log("Click!");}
+// Calc listeners
+var buttons = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero", "add", "subtract", "enter", "carot", "divide", "multiply", "clear", "dot"];
+
+var classname = document.getElementsByClassName("digit");
+var listeners = function() {
+    var attribute = this.getAttribute("id");
+    console.log(attribute);
+};
+
+for (var i = 0; i < classname.length; i++) {
+    classname[i].addEventListener('click', listeners, false);
 }
