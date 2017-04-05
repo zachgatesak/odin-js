@@ -8,26 +8,36 @@
     <title>Bootstrap 101 Template</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- STYLES -->
+    <!--  http://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=grid-layout-for-medium-devices-->
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <div id="0"></div>
-    <div id="1"></div>
-    <div id="2"></div>
-    <div id="3"></div>
-    <div id="4"></div>
-    <div id="5"></div>
-    <div id="6"></div>
-    <div id="7"></div>
-    <div id="8"></div>
-    <div id="9"></div>
+    <div class="container" id="calc">
+      <div class="row">
+        <h3>Output will go here</h3>
+      </div>
+      <div class="row">
+        <div id="7" class="digit col-sm-4"><p>Seven</p></div>
+        <div id="8" class="digit col-sm-4"><p>Eight</p></div>
+        <div id="9" class="digit col-sm-4"><p>Nine</p></div>
+      </div>
+      <div class="row">
+        <div id="4" class="digit col-sm-4"><p>Four</p></div>
+        <div id="5" class="digit col-sm-4"><p>Five</p></div>
+        <div id="6" class="digit col-sm-4"><p>Six</p></div>
+      </div>
+      <div class="row">
+        <div id="1" class="digit col-sm-4"><p>One</p></div>
+        <div id="2" class="digit col-sm-4"><p>Two</p></div>
+        <div id="3" class="digit col-sm-4"><p>Three</p></div>
+      </div>
+      <div class="row">
+        <div id="0" class="digit col-sm-8"><p>Zero</p></div>
+      </div>
 
     <!-- SCRIPTS -->
     <script src="script.js"></script>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
