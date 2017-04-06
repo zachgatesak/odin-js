@@ -48,7 +48,6 @@ function carot(n1,n2){
   }
   return output;
 }
-
 //Operators
 function clearOp(){
   if(display.length === 0){
@@ -184,7 +183,6 @@ $(document).ready(function() {
   //dot
   $('#dot')[0].addEventListener('click', dotOp, false);
 });
-
 //Global Variables
 var display = [];
 var memory = [];

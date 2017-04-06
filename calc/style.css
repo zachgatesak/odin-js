@@ -1,30 +1,31 @@
-/** {
-  padding: 0;
-  margin: 0;
-}*/
 div {
-  background: #eee;
   display: block;
   margin: 0 auto;
+
+}
+.container {
+  background: #96939B;
 }
 .item {
-    margin:2.5px 1px 1px 2.5px;
+    /*margin:2.5px 1px 1px 2.5px;*/
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    background: #dbdfe5;
+    background: #145C9E;
     transition: .5s;
+    border:1px solid #0B4F6C;
 }
 .item:hover {
-  background: #fff0f0;
+  background: #364156;
+  color: white;
   transition: .5s;
 }
-
 #output {
   background: white;
+  text-align: right;
 }
 #zero {
-  margin: 2.5px 4px 1px 2.5px;
+  /*margin: 2.5px 4px 1px 2.5px;*/
   padding: 10px 40px 10px 40px;
 }
