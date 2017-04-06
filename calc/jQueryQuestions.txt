@@ -1,0 +1,40 @@
+1. What is a selector?
+  1.1 A selector allows you to grab an item from the dom and create an object. Once the JS object exists we can perform changes on the object as needed.
+
+2. What does the $ symbol mean?
+  2.1 It is a function that Jquery provides. Note that it is equivalent to jQuery();
+
+3. Why is it often important to wait for the Document (DOM) to finish loading?
+  3.1 Because the purpose of jquery is to manipulate items within the DOM, if we execute our code before the page has finished loading we may get unpredictable results.
+
+4. How can you select a particular element on the page?
+  4.1 $(function(){
+      var li = $( 'li' );
+  });
+  4.2. Note that you can use css selectors to with the above context to select items.
+
+5. How can you select only the <li> elements inside of <div> elements with class test-div?
+5.1 $(function(){
+    var selection = $('div li.test-div');
+})
+
+6. How are selectors actually pretty similar to the way CSS operates?
+6.1. See answer to 5.1
+
+7. What does a jQuery selector return?
+7.1 A javascript object containing all DOM elements that match the jquery.
+
+8. How can you manipulate the values (e.g. html, width, height...) of a selected element or elements?
+9. What does it mean that selected elements are "implicitly iterated over"? (Think if you used $("div") what would happen)
+10. How can you create new elements?
+11. How can you insert new elements into the DOM?
+12. How can you chain jQuery selectors?
+13. What happens to the elements you've already selected (e.g. with $("li")) if another qualifying element (e.g. a <li>gets added to the DOM later?
+14. What does "traversing the DOM" mean?
+15. How can you add CSS to a selected element?
+16. How do you add or remove data attributes from an element?
+17. What new iterators (including some familiar Ruby ones) does jQuery give you?
+18. How would you add the class some-class to every <li> on the page?
+19. How would you use #map to return an array listing the contents of a particular list?
+20. How is jQuery's #map almost identical to Ruby's?
+21. Where can you look up any selectors you need?
