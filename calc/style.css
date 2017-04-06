@@ -7,7 +7,7 @@ div {
   display: block;
   margin: 0 auto;
 }
-.digit {
+.item {
     margin:2.5px 1px 1px 2.5px;
     padding: 10px;
     font-size: 20px;
@@ -16,7 +16,7 @@ div {
     background: #dbdfe5;
     transition: .5s;
 }
-.digit:hover {
+.item:hover {
   background: #fff0f0;
   transition: .5s;
 }
