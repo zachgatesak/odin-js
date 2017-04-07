@@ -99,7 +99,26 @@
   16.2 .removeData() > can be used to delete those data objects.
 
 17. What new iterators (including some familiar Ruby ones) does jQuery give you?
+  17.1 .each() uses the .length property to iterate over all properties of the jquery object
+    $.each([ 52, 97 ], function( index, value ) {
+      alert( index + ": " + value );
+    });
+  17.2
+  function listIterate(){
+    return $('li').map(function(item, index){
+      return item.innerHTML;
+      });
+    }
+
 18. How would you add the class some-class to every <li> on the page?
+  18.1 $('li').addClass('some-class');
+
 19. How would you use #map to return an array listing the contents of a particular list?
+  19.1 $('li').map(function(){
+    return this.innerHTML;
+  })
+
 20. How is jQuery's #map almost identical to Ruby's?
+
 21. Where can you look up any selectors you need?
+  21.1 https://api.jquery.com
