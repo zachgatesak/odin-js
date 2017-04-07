@@ -14,25 +14,90 @@
   4.2. Note that you can use css selectors to with the above context to select items.
 
 5. How can you select only the <li> elements inside of <div> elements with class test-div?
-5.1 $(function(){
-    var selection = $('div li.test-div');
-})
+  5.1 $(function(){
+      var selection = $('div li.test-div');
+  })
 
 6. How are selectors actually pretty similar to the way CSS operates?
-6.1. See answer to 5.1
+  6.1. See answer to 5.1
 
 7. What does a jQuery selector return?
-7.1 A javascript object containing all DOM elements that match the jquery.
+  7.1 A javascript object containing all DOM elements that match the jquery.
 
 8. How can you manipulate the values (e.g. html, width, height...) of a selected element or elements?
+  8.1 $( 'li' ).html( 'New HTML' );
+  8.2
+    $( 'li' ).html(function( index, oldHtml ) {
+      return oldHtml + '!!!'
+      });
+  8.3
+    $( 'li' ).each(function( index, elem ) {
+    // this: the current, raw DOM element
+    // index: the current element's index in the selection
+    // elem: the current, raw DOM element (same as this)
+    $( elem ).prepend( '<b>' + index + ': </b>' );
+    });
+
+
 9. What does it mean that selected elements are "implicitly iterated over"? (Think if you used $("div") what would happen)
+  9.1 Jquery can select many elements from the Dom at one time. When many of these elements are included in the jquery object
+    using methods such as .html will perform the method on all tags grabbed by the selector.
+
 10. How can you create new elements?
+  10.1 $( '<p>' ); // creates a new <p> element with no content
+  10.2 $( '<p>Hello!</p>' ); // creates a new <p> element with content
+  10.3 $( '<p class="greet">Hello!</p>' ); // creates a new <p> with content and class
+  10.4
+    $( '<p>', {
+      html: 'Hello!',
+      'class': 'greet'
+    });
+  10.5
+    function appendText() {
+      var txt1 = "<p>Text.</p>";               // Create element with HTML
+      var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+      var txt3 = document.createElement("p");  // Create with DOM
+      txt3.innerHTML = "Text.";
+      $("body").append(txt1, txt2, txt3);      // Append the new elements
+    }
+  10.6
+    $("img").after("Some text after");
+    $("img").before("Some text before");
+
 11. How can you insert new elements into the DOM?
+  11.1 append() - Inserts content at the end of the selected elements
+  11.2 prepend() - Inserts content at the beginning of the selected elements
+  11.3 after() - Inserts content after the selected elements
+  11.4 before() - Inserts content before the selected elements
+
 12. How can you chain jQuery selectors?
+  12.1 One of the most lucrative parts of jQuery is the ability to "chain" methods together.
+    This means that we can call a series of methods on a selection without having to repeat the selection or store
+    the selection in a variable. We can even make new selections based on previous selections, all without breaking the chain.
+
 13. What happens to the elements you've already selected (e.g. with $("li")) if another qualifying element (e.g. a <li>gets added to the DOM later?
+  13.1 any methods prior to that function will affect all selected li's however any actions done after the further
+    specificaiton will not affect the earlier elements.
+
 14. What does "traversing the DOM" mean?
+  14.1 Generally grabbing items from the Dom by hitting the parent and navigating using tools like parentOf and childOf etc.
+
 15. How can you add CSS to a selected element?
+  15.1 The preferred method would be to have the css already setup and just simply use the jquery's .addClass(class) to the desired element.
+  15.2 alternatively you can use jquery to manually add css like the following:
+        var body_tag_css = {
+       "background-color": "#ddd",
+       "font-weight": "",
+       "color": "#000"
+      }
+      //Apply your CSS to the body tag.  You can enter any tag here, as
+      //well as ID's and Classes.
+      $("body").css(body_tag_css);
+
 16. How do you add or remove data attributes from an element?
+  16.1 .data() > can be used to add information to jquery object
+  16.2 .removeData() > can be used to delete those data objects.
+
 17. What new iterators (including some familiar Ruby ones) does jQuery give you?
 18. How would you add the class some-class to every <li> on the page?
 19. How would you use #map to return an array listing the contents of a particular list?
