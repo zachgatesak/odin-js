@@ -23,16 +23,20 @@ let direction = {
 }
 let snake = {
   headX:1,
-  headY:1
-}
+  headY:1,
+  length:2,
+  position:[],
+  move:function(){
+    this.position.push([this.headX,this.headY])
+  }
+};
+
 function drawSnake(){
   let selector = ".column-" + snake.headX + " .row-" + snake.headY;
-  console.log(selector);
   $(selector).addClass('fill');
 }
 function render(){
   clean('.container','.column');
-  console.log(direction.x);
   let container = $('.container');
   let height = 400;
   let width = 400;
@@ -48,6 +52,12 @@ function render(){
     columns.append("<div class=row-"+r+"></div>");
   }
   drawSnake();
+  if(snake.headY + direction.y > pixelC - 1|| snake.headY + direction.y < 0){
+    direction.y = direction.y * -1;
+  }
+  if(snake.headX + direction.x > pixelR - 1 || snake.headX + direction.x < 0){
+    direction.x = direction.x * -1;
+  }
   snake.headY += direction.y;
   snake.headX += direction.x;
 }
