@@ -19,12 +19,57 @@ function clean(obj, rem){
 let direction = {
   x:1,
   y:0,
-  tickRate:1000
+  tickRate:100,
+  rotateR:function(){
+    //right
+    if(this.x === 1 && this.y ===0){
+      this.x = 0;
+      this.y = 1;
+    }
+    //down
+    else if(this.y === 1 && this.x ===0){
+      this.y = 0;
+      this.x = -1;
+    }
+    //left
+    else if(this.x === -1 && this.y === 0){
+      this.x = 0;
+      this.y = -1;
+    }
+    //up
+    else if(this.y === -1 && this.x === 0){
+      this.y = 0;
+      this.x = 1;
+    }
+  },
+  rotateL:function(){
+    //right
+    if(this.x === 1 && this.y ===0){
+      this.x = 0;
+      this.y = -1;
+    }
+    //down
+    else if(this.y === 1 && this.x ===0){
+      this.y = 0;
+      this.x = 1;
+    }
+    //left
+    else if(this.x === -1 && this.y === 0){
+      this.x = 0;
+      this.y = 1;
+    }
+    //up
+    else if(this.y === -1 && this.x === 0){
+      this.y = 0;
+      this.x = -1;
+    }
+  }
+
 }
 let snake = {
   headX:1,
   headY:1,
-  segments:2,
+  segments:4,
   position:[],
   move:function(){
     this.position.push([this.headX,this.headY])
@@ -38,7 +83,6 @@ function drawSnake(){
   for(let i=0; i<snake.position.length; i++){
     let selector = ".column-" + snake.position[i][0] + " .row-" + snake.position[i][1];
     $(selector).addClass('fill');
-    console.log("0x: " +snake.position[0][0]);
   }
 }
 
@@ -68,7 +112,25 @@ function render(){
   snake.headX += direction.x;
   snake.move();
   drawSnake();
+
+  console.log("D.x"+direction.x);
+  console.log("D.y"+direction.y);
+  console.log("###");
 }
 
 render();
 setInterval(render,direction.tickRate);
+
+// Listeners
+document.addEventListener("keydown",keydown,false);
+
+function keydown(e){
+  if(e.keyCode==39){
+    direction.rotateR();
+    console.log("Right!");
+  }
+  else if(e.keyCode==37){
+  direction.rotateL();
+  console.log("Left!");
+  }
+}
