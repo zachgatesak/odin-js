@@ -19,22 +19,29 @@ function clean(obj, rem){
 let direction = {
   x:1,
   y:0,
-  tickRate:100
+  tickRate:1000
 }
 let snake = {
   headX:1,
   headY:1,
-  length:2,
+  segments:2,
   position:[],
   move:function(){
     this.position.push([this.headX,this.headY])
+    if(this.position.length > this.segments){
+      this.position.shift();
+    }
   }
 };
 
 function drawSnake(){
-  let selector = ".column-" + snake.headX + " .row-" + snake.headY;
-  $(selector).addClass('fill');
+  for(let i=0; i<snake.position.length; i++){
+    let selector = ".column-" + snake.position[i][0] + " .row-" + snake.position[i][1];
+    $(selector).addClass('fill');
+    console.log("0x: " +snake.position[0][0]);
+  }
 }
+
 function render(){
   clean('.container','.column');
   let container = $('.container');
@@ -51,7 +58,6 @@ function render(){
   for(let r=0; r< pixelR; r++){
     columns.append("<div class=row-"+r+"></div>");
   }
-  drawSnake();
   if(snake.headY + direction.y > pixelC - 1|| snake.headY + direction.y < 0){
     direction.y = direction.y * -1;
   }
@@ -60,6 +66,9 @@ function render(){
   }
   snake.headY += direction.y;
   snake.headX += direction.x;
+  snake.move();
+  drawSnake();
 }
+
 render();
 setInterval(render,direction.tickRate);
