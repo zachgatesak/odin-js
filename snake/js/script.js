@@ -39,10 +39,22 @@ let apple = {
 }
 function bounce(){
   if(snake.headY + direction.y > pixelC - 1|| snake.headY + direction.y < 0){
-    direction.y = direction.y * -1;
+    snake.death();
   }
   if(snake.headX + direction.x > pixelR - 1 || snake.headX + direction.x < 0){
-    direction.x = direction.x * -1;
+    snake.death();
+  }
+  for(let i=5; i<snake.position.length; i++){
+    if(snake.headX=== snake.position[i][0]){
+      if(snake.headY === snake.position[i][1]){
+        console.log("snake.headX: "+snake.headX);
+        console.log("snake.position[i][0]: "+snake.position[i][0]);
+
+        console.log("snake.headY: "+snake.headY);
+        console.log("snake.position[i][1]: "+snake.position[i][0]);
+        snake.death();
+      }
+    }
   }
 }
 let direction = {
@@ -98,7 +110,7 @@ let direction = {
 let snake = {
   headX:1,
   headY:1,
-  segments:4,
+  segments:10,
   position:[],
   lives: 3,
   move:function(){
@@ -110,10 +122,13 @@ let snake = {
   death:function(){
     if(this.lives > 1){
       this.headX = 1;
-      this.heady = 5;
+      this.headY = 1;
       this.segments = 2;
       this.position = [];
       this.lives--;
+      direction.x = 1;
+      direction.y = 0;
+      apple.flush();
       console.log(this.lives);
     }
     else{
@@ -149,13 +164,14 @@ function render(){
   for(let r=0; r< pixelR; r++){
     columns.append("<div class=row-"+r+"></div>");
   }
-  bounce();
   snake.headY += direction.y;
   snake.headX += direction.x;
-  snake.move();
+
   drawSnake();
   apple.draw();
   apple.chomp();
+  snake.move();
+  bounce();
 }
 
 function keydown(e){
