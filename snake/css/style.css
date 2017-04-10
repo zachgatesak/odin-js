@@ -20,6 +20,9 @@ div.column div{
     height: 40px;
     border: 1px solid red;
 }
+.apple{
+  background:red;
+}
 .fill{
   background:black;
 }

@@ -1,6 +1,10 @@
 //Declarations
 let numRows = 40;
 let numColumns = 40;
+let height = 400;
+let width = 400;
+let pixelR = height/numRows;
+let pixelC = width/numColumns;
 let grid = []
 for(let r=0; r < numRows; r++){
   grid[r] = [];
@@ -8,13 +12,38 @@ for(let r=0; r < numRows; r++){
     grid[r][c] = " ";
   }
 }
-//TODO: Remove this funciton prior to production build
-function stop(){
-  document.write('<!--');
-  console.log("Document stopped please reload to continue.")
+let apple = {
+  x:Math.round(getRandomArbitrary(0,height/numColumns-1)),
+  y:Math.round(getRandomArbitrary(0,height/numRows-1)),
+  draw:function(){
+    let selector = ".column-" + this.x + " .row-" + this.y;
+    $(selector).addClass('apple');
+  },
+  flush:function(){
+    this.x = Math.round(getRandomArbitrary(0,height/numColumns -1));
+    this.y = Math.round(getRandomArbitrary(0,height/numRows -1));
+    for(let i=0; i<snake.position.length; i++){
+      if(this.x === snake.position[i][0]){
+        if(this.y === snake.position[i][1]){
+          this.flush();
+        }
+      }
+    }
+  },
+  chomp:function(){
+    if(snake.headX ===this.x && snake.headY === this.y){
+      snake.segments++;
+      this.flush();
+    }
+  }
 }
-function clean(obj, rem){
-  $(obj).find(rem).remove();
+function bounce(){
+  if(snake.headY + direction.y > pixelC - 1|| snake.headY + direction.y < 0){
+    direction.y = direction.y * -1;
+  }
+  if(snake.headX + direction.x > pixelR - 1 || snake.headX + direction.x < 0){
+    direction.x = direction.x * -1;
+  }
 }
 let direction = {
   x:1,
@@ -71,28 +100,46 @@ let snake = {
   headY:1,
   segments:4,
   position:[],
+  lives: 3,
   move:function(){
     this.position.push([this.headX,this.headY])
     if(this.position.length > this.segments){
       this.position.shift();
     }
+  },
+  death:function(){
+    if(this.lives > 1){
+      this.headX = 1;
+      this.heady = 5;
+      this.segments = 2;
+      this.position = [];
+      this.lives--;
+      console.log(this.lives);
+    }
+    else{
+      direction.x =0;
+      direction.y =0;
+      alert("Game Over!");
+    }
   }
 };
+function stop(){
+  document.write('<!--');
+  console.log("Document stopped please reload to continue.")
+}
 
+function clean(obj, rem){
+  $(obj).find(rem).remove();
+}
 function drawSnake(){
   for(let i=0; i<snake.position.length; i++){
     let selector = ".column-" + snake.position[i][0] + " .row-" + snake.position[i][1];
     $(selector).addClass('fill');
   }
 }
-
 function render(){
   clean('.container','.column');
   let container = $('.container');
-  let height = 400;
-  let width = 400;
-  let pixelR = height/numRows;
-  let pixelC = width/numColumns;
   for(let c=0; c < pixelC; c++){
     container.append("<div class=column-"+c+"></div>");
     }
@@ -102,27 +149,14 @@ function render(){
   for(let r=0; r< pixelR; r++){
     columns.append("<div class=row-"+r+"></div>");
   }
-  if(snake.headY + direction.y > pixelC - 1|| snake.headY + direction.y < 0){
-    direction.y = direction.y * -1;
-  }
-  if(snake.headX + direction.x > pixelR - 1 || snake.headX + direction.x < 0){
-    direction.x = direction.x * -1;
-  }
+  bounce();
   snake.headY += direction.y;
   snake.headX += direction.x;
   snake.move();
   drawSnake();
-
-  console.log("D.x"+direction.x);
-  console.log("D.y"+direction.y);
-  console.log("###");
+  apple.draw();
+  apple.chomp();
 }
-
-render();
-setInterval(render,direction.tickRate);
-
-// Listeners
-document.addEventListener("keydown",keydown,false);
 
 function keydown(e){
   if(e.keyCode==39){
@@ -134,3 +168,12 @@ function keydown(e){
   console.log("Left!");
   }
 }
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+//Body
+render();
+setInterval(render,direction.tickRate);
+
+// Listeners
+document.addEventListener("keydown",keydown,false);
