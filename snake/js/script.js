@@ -1,27 +1,28 @@
 //Declarations
-let numRows = 40;
-let numColumns = 40;
+let rowWidth = 40;
+let columnWidth = 40;
 let height = 400;
 let width = 400;
-let pixelR = height/numRows;
-let pixelC = width/numColumns;
+let pixelR = height/rowWidth;
+let pixelC = width/columnWidth;
+let tmpTotal = (height/rowWidth) * (width/columnWidth);
 let grid = []
-for(let r=0; r < numRows; r++){
+for(let r=0; r < rowWidth; r++){
   grid[r] = [];
-  for(let c=0; c <numColumns; c++){
+  for(let c=0; c <columnWidth; c++){
     grid[r][c] = " ";
   }
 }
 let apple = {
-  x:Math.round(getRandomArbitrary(0,height/numColumns-1)),
-  y:Math.round(getRandomArbitrary(0,height/numRows-1)),
+  x:Math.round(getRandomArbitrary(0,height/columnWidth-1)),
+  y:Math.round(getRandomArbitrary(0,height/rowWidth-1)),
   draw:function(){
     let selector = ".column-" + this.x + " .row-" + this.y;
     $(selector).addClass('apple');
   },
   flush:function(){
-    this.x = Math.round(getRandomArbitrary(0,height/numColumns -1));
-    this.y = Math.round(getRandomArbitrary(0,height/numRows -1));
+    this.x = Math.round(getRandomArbitrary(0,height/columnWidth -1));
+    this.y = Math.round(getRandomArbitrary(0,height/rowWidth -1));
     for(let i=0; i<snake.position.length; i++){
       if(this.x === snake.position[i][0]){
         if(this.y === snake.position[i][1]){
@@ -37,15 +38,23 @@ let apple = {
     }
   }
 }
+function win(){
+  if(segments=tmpTotal-1){
+    direction.x = 0;
+    direction.y = 0;
+    alert("You Win!")
+  }
+}
+
 function bounce(){
-  if(snake.headY + direction.y > pixelC - 1|| snake.headY + direction.y < 0){
+  if(snake.headY == pixelC || snake.headY < 0){
     snake.death();
   }
-  if(snake.headX + direction.x > pixelR - 1 || snake.headX + direction.x < 0){
+  if(snake.headX == pixelR || snake.headX < 0){
     snake.death();
-  }
-  for(let i=5; i<snake.position.length; i++){
-    if(snake.headX=== snake.position[i][0]){
+   }
+  for(let i=0; i<snake.position.length -1; i++){
+    if(snake.headX === snake.position[i][0]){
       if(snake.headY === snake.position[i][1]){
         console.log("snake.headX: "+snake.headX);
         console.log("snake.position[i][0]: "+snake.position[i][0]);
@@ -60,7 +69,7 @@ function bounce(){
 let direction = {
   x:1,
   y:0,
-  tickRate:100,
+  tickRate:150,
   rotateR:function(){
     //right
     if(this.x === 1 && this.y ===0){
@@ -110,7 +119,7 @@ let direction = {
 let snake = {
   headX:1,
   headY:1,
-  segments:10,
+  segments:4,
   position:[],
   lives: 3,
   move:function(){
@@ -135,6 +144,7 @@ let snake = {
       direction.x =0;
       direction.y =0;
       alert("Game Over!");
+      document.location.reload();
     }
   }
 };
@@ -166,6 +176,8 @@ function render(){
   }
   snake.headY += direction.y;
   snake.headX += direction.x;
+  $('.score').html('<h4>Score: '+ snake.segments +' of '+ tmpTotal +'</h4>');
+  $('.lives').html('<h4>Lives: '+snake.lives+'</h4>');
 
   drawSnake();
   apple.draw();
