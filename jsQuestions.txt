@@ -1,3 +1,8 @@
+JS Stylesheet examples:
+  1. https://github.com/airbnb/javascript
+  2. http://contribute.jquery.org/style-guide/js/
+  3. 
+
 1. How do you include a Javascript file in your HTML file?
   1.1 <script src="script.js"></script>
 2. How do you include Javascript directly in your HTML code?
@@ -198,4 +203,3 @@
 
 34. How does #bind make your life simpler when thinking about closures and scopes?
   34.1 the bind() method allows for a new function that when called has its this keyword set to the provided value.
-  
