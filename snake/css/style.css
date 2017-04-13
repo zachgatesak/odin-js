@@ -12,17 +12,19 @@ div.column{
     float: left;
     width: 40px;
     height: 400px;
-    border: 1px solid blue;
+    border: 1px solid black;
 }
 
 div.column div{
     width: 40px;
     height: 40px;
-    border: 1px solid red;
+    border: 1px solid black;
 }
 .apple{
   background:red;
 }
 .fill{
   background:black;
+}
+.container{
 }
