@@ -1,0 +1,28 @@
+div.container {
+  display:block;
+  height: 200px;
+  width: 200px;
+  background: blue;
+}
+div.container div {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 0 10px 0 10px;
+}
+div.container:first-child{
+  z-index: 10;
+}
+div.container:not(:first-child) {
+    display: none;
+}
+div.buttons {
+  text-align: center;
+}
+
+h4 {
+
+}

@@ -5,34 +5,30 @@ div.container {
   height: 400px;
   width: 400px;
 }
-img {
-  display: none;
-}
 .images {
   height :200px;
 }
-.center {
-  margin: 0 auto;
-  display: block;
+.hide {
+    display: none;
 }
-
+/*
 .show {
   display: inline-block;
   height : 100%;
   width : 100%;
-}
-
+}*/
 .portrait {
     height: 400px;
     width: 150px;
 }
-
 .landscape {
     height: 150px;
     width: 400px;
 }
-
 .square {
     height: 400px;
     width: 400px;
+}
+.buttons {
+  text-align: center;
 }

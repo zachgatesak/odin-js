@@ -1,12 +1,12 @@
 function display(i){
   //if this 0 blank display
   if(i === 0){
-      $('div.container img').removeClass('show');
+      $('div.container img').hide(100);
   }
   else {
     // if >0 display img
-    $('div.images img').removeClass('show');
-    $('div.images > img:nth-child('+ i +')').addClass('show');
+    $('div.container img').toggle(+''+);
+    $('div.images > img:nth-child('+ i +')').toggle("left");
   }
 }
 function augmentDisplay(bool){

@@ -3,8 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Slider Example</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.structure.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.css">
+
   </head>
   <body>
 
@@ -16,16 +20,19 @@
           <img class="landscape" src="sources/vault.png" alt="Vault">
           <img class="landscape" src="sources/cloudy.png" alt="cloudy">
         </div>
-        <div class="row">
-          <button class="btn-primary center" id="LEFT">Left</button>
-          <button class="btn-primary center" id="BLANK">Blank</button>
-          <button class="btn-primary center" id="RIGHT">Right</button>
+        <div class="row buttons">
+          <button class="btn-primary" id="LEFT">Left</button>
+          <button class="btn-primary" id="BLANK">Show/Hide</button>
+          <button class="btn-primary" id="RIGHT">Right</button>
         </div>
       </div>
     </div>
     <!--  Scripts -->
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js">
+
+    </script>
     <script src="js/bootstrap.js"></script>
   </body>
 </html>
