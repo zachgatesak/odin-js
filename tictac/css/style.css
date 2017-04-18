@@ -1,0 +1,19 @@
+/*div.container div div {
+  padding: 100px 100px 100px 100px;
+  background: blue;
+  float: left;
+  margin: 10px;
+}*/
+div.container div div {
+  background: blue;
+}
+
+.row {
+    display: table;
+}
+
+[class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
